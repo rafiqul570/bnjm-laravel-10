@@ -77,4 +77,5 @@ class SubscriberController extends Controller
         User::FindOrFail($id)->delete();
         return back()->with('success', 'Success! data delete Successfully');
     }
+
 }

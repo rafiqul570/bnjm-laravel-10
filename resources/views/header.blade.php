@@ -83,6 +83,7 @@
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="{{ route('bn_cash.create') }}" class="nav-link">Add cash</a></li>
           <li class="nav-item"><a href="{{ route('bn_cash.index') }}" class="nav-link">All cash</a></li>
+          <li class="nav-item"><a href="{{ route('bn_cash.view') }}" class="nav-link">View cash</a></li>
         </ul>
 
        <?php }else{ ?>
@@ -94,17 +95,7 @@
           </div>
         </a>
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="../bn_chada/view-chada.php" class="nav-link">View chada</a></li>
-        </ul>
-
-        <a href="#" class="sl-menu-link">
-          <div class="sl-menu-item">
-            <span class="menu-item-label">Cash</span>
-            <i class="menu-item-arrow fa fa-angle-down"></i>
-          </div>
-        </a>
-        <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="../bn_cash/view-cash.php" class="nav-link">View cash</a></li>
+          <li class="nav-item"><a href="" class="nav-link">View chada</a></li>
         </ul>
 
       <?php } ?>

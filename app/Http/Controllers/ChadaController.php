@@ -13,9 +13,8 @@ class ChadaController extends Controller
 {
     public function index(){
 
-        $allChada = DB::table('chadas')->join('users', 'chadas.user_id', 'users.id')
-        ->whereNot('user_id',[1])
-        ->get();
+        $allChada = Chada::first()->join('users', 'chadas.user_id', 'users.id')
+        ->whereNot('user_id',[1])->get();
 
         return view('bn_chada.index', compact('allChada'));
     }
@@ -83,8 +82,6 @@ class ChadaController extends Controller
         Chada::FindOrFail($id)->delete();
         return back()->with('success', 'Success! data delete Successfully');
     }
-
-
 
 
 }

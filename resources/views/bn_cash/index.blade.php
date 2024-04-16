@@ -29,8 +29,8 @@
            <tr>
              <td>{{++$key}}</td>
              <td>{{$data->date}}</td>
-             <td>{{$data->expense}}</td>
              <td>{{$data->income}}</td>
+             <td>{{$data->expense}}</td>
              <td>
                 <a href="">Edit</a> ||
                 <a href="">Delete</a>

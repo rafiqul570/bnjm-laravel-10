@@ -27,12 +27,12 @@
  </div>
 
  <div class="card p-2 bg-info">
-         <h6 class="text-light">মাসিক হিসাব দেখার জন্য সাল ও মাস নির্বাচন করুণ <span style="color: red">*</span> </h6> 
+         <h6 class="text-light">মাসিক হিসাব দেখার জন্য সাল ও মাস নির্বাচন করুণ <span style="color: red">*</span> </h6>
         <form action="{{route('bn_cash.search')}}" method="GET">
           <table width="100%">
             <tr>
               <td width="45%" class="">
-               <div class="form-group"> 
+               <div class="form-group">
                <select class="form-control" id="year" name="year">
                   <option selected>সাল নির্বাচন করুণ</option>
                   @foreach ($group as $data)
@@ -40,10 +40,10 @@
                   @endforeach
                 </select>
                </div>
-  
+
               </td>
               <td width="45%" class="">
-               <div class="form-group"> 
+               <div class="form-group">
                   <select class="form-control" id="month" name="month">
                     <option>মাস নির্বাচন করুণ</option>
                     <option value="Jan">January</option>
@@ -59,10 +59,10 @@
                     <option value="Nov">November</option>
                     <option value="Dec">December</option>
                   </select>
-                </div> 
+                </div>
               </td>
               <td width="10%">
-                <input class="btn btn-info" type="submit" name="submit" value="Search" style="margin-top: -20px">
+                <input class="btn btn-info" type="submit" value="Search" style="margin-top: -20px">
               </td>
             </tr>
           </table>
@@ -84,16 +84,16 @@
         </tr>
         </thead>
         <tbody>
-        @php 
-        $totalincome = 0; 
-        $totalexpense = 0; 
+        @php
+        $totalincome = 0;
+        $totalexpense = 0;
         @endphp
         @foreach ($allCash as $key => $data)
-        @php 
-       
+        @php
+
         $totalincome = $totalincome + $data->income;
         $totalexpense = $totalexpense + $data->expense;
-        $balance = $totalincome - $totalexpense
+        $balance = $totalincome - $totalexpense;
         @endphp
         <tr>
         <td>{{++$key}}</td>

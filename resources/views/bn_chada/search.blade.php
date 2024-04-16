@@ -1,50 +1,52 @@
 @extends('user.layouts.template')
 @section('content')
-<div class="row mb-4 row11">
-    <div class="col-md-12">
-    <div class="card p-2 bg-info">
-     <h6 class="text-light">বাৎসরিক হিসাব দেখতে সাল নির্বাচন করুণ<span style="color: red">*</span> </h6>
-       <form action="{{route('bn_chada.search')}}" method="GET">
-         <table width="100%">
-              <td width="100%" class="">
-               <div class="form-group">
-                <select class="form-control" id="year" name="year">
-                  <option selected>সাল নির্বাচন করুণ</option>
-                  @foreach ($group as $data)
-                  <option value="{{$data->year}}">{{$data->year}}</option>
-                  @endforeach
-                </select>
-               </div>
-              </td>
-              <td width="10%">
-            <input class="btn btn-info" type="submit" value="Search" style="margin-top: -20px">
-          </td>
-        </tr>
-      </table>
-    </form>
-   </div>
-  </div>
- </div>
-<div class="card">
-    <a href="{{route('redirects')}}"><h6 class="text-dark p-3">All Chada</h6></a>
-    <table class="table table-responsive table-success table-striped">
-        <thead>
-        <tr>
-        <th class="wd-10p">SL</th>
-        <th class="wd-20p">তারিখ</th>
-        <th class="wd-20p">সাল</th>
-        <th class="wd-20p">টাকা</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach ($allChada as $key => $data)
-        <tr>
-        <td>{{++$key}}</td>
-        <td>{{$data->date}}</td>
-        <td>{{$data->year}}</td>
-        <td>{{$data->amount}}</td>
-        </tr>
-        @endforeach
-        </tbody>
-    </table>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+</head>
+<body>
+
+    <div class="card pd-20 pd-sm-40 form-layout form-layout-5">
+        <h3 class="text-dark pb-3">All Subscriber</h3>
+         <div class="table-responsive">
+           <table id="datatable1" class="table table-striped table-info">
+             <thead>
+               <tr>
+                 <th class="wd-10p">SL</th>
+                 <th class="wd-30p">year</th>
+                 <th class="wd-20p">Amount</th>
+                 <th class="wd-20p">Phone</th>
+               </tr>
+             </thead>
+
+             <tbody>
+                @foreach ($allSubscriber as $key => $data)
+               <tr>
+                 <td>{{++$key}}</td>
+                 <td>{{$data->name}}</td>
+                 <td>{{$data->amount}}</td>
+                 <td>{{$data->phone}}</td>
+               </tr>
+               @endforeach
+             </tbody>
+          </table>
+         </div>
+       </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+    <script>
+    @if (Session::has('success'))
+        toastr.success("{{Session::get('success')}}");
+    @endif
+    </script>
+
+</body>
+</html>
 @endsection
